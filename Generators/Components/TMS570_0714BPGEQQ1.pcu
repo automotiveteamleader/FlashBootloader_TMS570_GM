@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Vector Employee (Vector Informatik GmbH) -->
+<!-- edited with Notepad++ by Jason Learst(VADJLE) for specific derivative -->
+<config name="CFL: TI TMS570 0714BPGEQQ1" guid="123456FF-789a-bcde-f012-3456789abcde" xmlns="http://www.vector-informatik.de/CANGen/ModulePreconfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.vector-informatik.de/CANGen/ModulePreconfig
+R:\GENTOOL\NextCANGen\VersionCurrent_Develop\PreconfigFiles\preconfig.xsd">
+	<description>Preconfig file for FblDrvCan_TMS570_0714BPGEQQ1</description>
+	<module name="FblDrvCan_TMS470DCanCrx" version="1.0">
+		<description>Configuration of 0812BPGEQQ1</description>
+		<attribute name="FlashBlockTableSize" class="OTModuleInstance">
+			<default value="10"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="StartAddress1" class="OTModuleInstance">
+			<default value="0x0000"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="StartAddress2" class="OTModuleInstance">
+			<default value="0x4000"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="StartAddress3" class="OTModuleInstance">
+			<default value="0x8000"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="StartAddress4" class="OTModuleInstance">
+			<default value="0xC000"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="StartAddress5" class="OTModuleInstance">
+			<default value="0x10000"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="StartAddress6" class="OTModuleInstance">
+			<default value="0x14000"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="StartAddress7" class="OTModuleInstance">
+			<default value="0x18000"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="StartAddress8" class="OTModuleInstance">
+			<default value="0x20000"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+      </attribute>
+    <attribute name="StartAddress9" class="OTModuleInstance">
+			<default value="0x40000"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="StartAddress10" class="OTModuleInstance">
+			<default value="0x60000"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="EndAddress1" class="OTModuleInstance">
+			<default value="0x3FFF"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="EndAddress2" class="OTModuleInstance">
+			<default value="0x7FFF"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="EndAddress3" class="OTModuleInstance">
+			<default value="0xBFFF"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="EndAddress4" class="OTModuleInstance">
+			<default value="0xFFFF"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="EndAddress5" class="OTModuleInstance">
+			<default value="0x13FFF"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="EndAddress6" class="OTModuleInstance">
+			<default value="0x17FFF"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="EndAddress7" class="OTModuleInstance">
+			<default value="0x1FFFF"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="EndAddress8" class="OTModuleInstance">
+			<default value="0x3FFFF"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+    </attribute>
+		<attribute name="EndAddress9" class="OTModuleInstance">
+			<default value="0x5FFFF"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="EndAddress10" class="OTModuleInstance">
+			<default value="0x7FFFF"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="DeviceType1" class="OTModuleInstance">
+			<default value="1"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="DeviceType2" class="OTModuleInstance">
+			<default value="1"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="DeviceType3" class="OTModuleInstance">
+			<default value="1"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="DeviceType4" class="OTModuleInstance">
+			<default value="1"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="DeviceType5" class="OTModuleInstance">
+			<default value="1"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="DeviceType6" class="OTModuleInstance">
+			<default value="1"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="DeviceType7" class="OTModuleInstance">
+			<default value="1"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="DeviceType8" class="OTModuleInstance">
+			<default value="1"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+    </attribute>
+		<attribute name="DeviceType9" class="OTModuleInstance">
+			<default value="1"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="DeviceType10" class="OTModuleInstance">
+			<default value="1"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="Description1" class="OTModuleInstance">
+			<default value="BANK0 / SECTOR 0 / 16K Bytes"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+    </attribute>
+		<attribute name="Description2" class="OTModuleInstance">
+			<default value="BANK0 / SECTOR 1 / 16K Bytes"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="Description3" class="OTModuleInstance">
+			<default value="BANK0 / SECTOR 2 / 16K Bytes"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="Description4" class="OTModuleInstance">
+			<default value="BANK0 / SECTOR 3 / 16K Bytes"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="Description5" class="OTModuleInstance">
+			<default value="BANK0 / SECTOR 4 / 16K Bytes"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="Description6" class="OTModuleInstance">
+			<default value="BANK0 / SECTOR 5 / 16K Bytes"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="Description7" class="OTModuleInstance">
+			<default value="BANK0 / SECTOR 6 / 32K Bytes"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="Description8" class="OTModuleInstance">
+			<default value="BANK0 / SECTOR 7 / 128K Bytes"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+		<attribute name="Description9" class="OTModuleInstance">
+			<default value="BANK0 / SECTOR 8 / 128K Bytes"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+    </attribute>
+		<attribute name="Description10" class="OTModuleInstance">
+			<default value="BANK0 / SECTOR 9 / 128K Bytes"/>
+			<userlevel value="normal"/>
+			<access value="none"/>
+			<settingkind value="application"/>
+		</attribute>
+  </module>
+	<module name="FBL" version="4.19">
+		<description>Configuration of FBL module</description>
+		<!--Memory Device 1-->
+		<attribute name="NameOfDeviceType1" class="OTModuleInstance">
+			<default value="Flash"/>
+		</attribute>
+		<attribute name="SegmentSize1" class="OTModuleInstance">
+			<default value="0x8"/>
+		</attribute>
+		<attribute name="ErasedValue1" class="OTModuleInstance">
+			<default value="0xFF"/>
+		</attribute>
+	</module>
+</config>

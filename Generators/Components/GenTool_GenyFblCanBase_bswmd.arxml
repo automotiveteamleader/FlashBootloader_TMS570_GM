@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2009 sp1 (http://www.altova.com) by Vector Employee (Vector Informatik GmbH) -->
+<!-- edited with XMLSPY v2004 rel. 4 U (http://www.xmlspy.com) by Harald Brunner (Vector Informatik GmbH) -->
+<AUTOSAR xmlns="http://autosar.org/3.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TOP-LEVEL-PACKAGES>
+		<AR-PACKAGE UUID="DCE:30418d1f-c2d6-45a8-8be4-aafd17fbb609">
+			<SHORT-NAME>MICROSAR</SHORT-NAME>
+			<ELEMENTS>
+				<BSW-IMPLEMENTATION UUID="DCE:2f84574c-538d-4b2e-8ea5-a8149396a6ca">
+					<SHORT-NAME>GenTool_GenyFblCanBase_Impl</SHORT-NAME>
+					<CODE-GENERATOR>cMICROSAR,GENy</CODE-GENERATOR>
+					<PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+					<AR-MAJOR-VERSION>3</AR-MAJOR-VERSION>
+					<AR-MINOR-VERSION>0</AR-MINOR-VERSION>
+					<AR-PATCH-VERSION>1</AR-PATCH-VERSION>
+					<VENDOR-SPECIFIC-MODULE-DEF-REF DEST="MODULE-DEF">/MICROSAR/GenTool_GenyFblCanBase_Def</VENDOR-SPECIFIC-MODULE-DEF-REF>
+				</BSW-IMPLEMENTATION>
+				<MODULE-DEF UUID="DCE:25de1d17-492b-4224-993c-a28076c4f340">
+					<SHORT-NAME>GenTool_GenyFblCanBase_Def</SHORT-NAME>
+					<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+					<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+					<CONTAINERS>
+						<PARAM-CONF-CONTAINER-DEF UUID="DCE:96746afb-5c5e-4ed4-b2fe-04fbf5a76490">
+							<SHORT-NAME>General</SHORT-NAME>
+							<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+							<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+							<PARAMETERS>
+								<STRING-PARAM-DEF UUID="DCE:9b25914d-3d69-464a-8e64-77185846a28c">
+									<SHORT-NAME>UserConfigFile</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">If a file path is specified, the file is read and its contents are put at the end of the FBL config file.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+								</STRING-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="cfe6d8b5-8c86-4a62-8a11-3c044c8d0658">
+									<SHORT-NAME>ProjectState</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Code that is required for integration/development is automatically removed once the production state is configured. Test FBL_PROJECT_STATE for FBL_INTEGRATION / FBL_PRODUCTION to use this for your own code. Bootloader internal checks are configured according to the current project state:
+
+~~~ Integration ~~~
+Choose this state during development/integration of your integration project.
+This configuration adds internal configuration and user code checks and hence helps you to find configuration errors easily. Errors found will trigger the callback ApplFblFatalError(). A user specific error handling can be added, e.g. flashing Led if no debugger is available (default: while(1){;});
+
+~~~ Production (default) ~~~
+Choose this state when ready for production.
+Configuration checks are turned off.
+
+~~~ Production (reduced checks) ~~~
+Choose this state when ready for production and if you need to minimize code size.
+Some additional checks will also be disabled in order to reduce code size. The resulting configuration reports NRCs on runtime errors late. This will make it more difficult to analyze errors that occur on production ECUs. It is therefore recommended to configure "Production (default)" if possible.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>0</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:6c83dd65-e5b3-459e-8dfb-7f9d4b046c9f">
+									<SHORT-NAME>EnableStayInBoot</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">If activated the FBL waits a specified time before jumping to a valid application. If a special message is received within this time the FBL stays active. This feature is designed for development phase to avoid reflashing the FBL if the application doesn't work properly.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="3deb4aa0-64d4-4862-8b77-f89a11623e0e">
+									<SHORT-NAME>MaxSegmentsPerBlock</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">The download of an application can be separated in several segments depending on the linker settings. To store the addresses and lengths of these segments, the FBL uses an array. Enter the maximum number of address segments here.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>0</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:c75a3b85-0124-428d-af93-11f186df8ae0">
+									<SHORT-NAME>MultipleModuls</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">This feature enables reprogramming of a certain module or block without changing other modules/blocks.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>true</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:c15f75a7-6829-4519-9e94-79d6d26d185e">
+									<SHORT-NAME>EnableSystemCheck</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Enables enhanced error processing. Activate system check to find configuration errors like wrong size of watchdog/diagnostic buffer.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>true</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:a0ef7a11-a0e0-4a10-9eba-cf3a4bebe820">
+									<SHORT-NAME>EnableSleepMode</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Enable sleep mode/power down support for FBL.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="DCE:abdd08a4-669c-4707-962e-dec66d480e0d">
+									<SHORT-NAME>SleepTime</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">If the sleep mode is enabled and the diagnostic layer does not receive a diagnostic request for the period of time specified with this attribute then the function fbl_ap.c::ApplFblBusSleep() is called.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+								</INTEGER-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:5cf5396f-cfe5-49fa-b865-2ba99effec53">
+									<SHORT-NAME>EnableApplTask</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">If this option is enabled, the bootloader provides function fbl_ap.c::ApplFblTask(). You can add user specific code to this function which will be called cyclically by the bootloader. The actual call cycle is derived from GENy attribute FblTp_Iso/TP call cycle.
+
+Note: The task function won't be called during diagnostic service processing.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>true</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:42ab2e21-1d55-4ceb-8952-77da4f03a0bf">
+									<SHORT-NAME>EnableFlashBlockCheck</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Enable this feature to check if the download matches the physical Flash areas. Disabling this feature reduces Codesize. NOTE: When using multiple "Device Types" for the "Flash Block Table" this Feature has to be enabled.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>true</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:0547ccf0-0cd1-4e4e-bbcf-9b752da4f807">
+									<SHORT-NAME>EnableDebugStatus</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">When this feature is enabled, the FBL sends more detailed error codes. This feature only works with Vector Flash tools. Use this option to track down integration issues.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>true</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="DCE:f5715f3c-d484-414f-b8dd-c1a1ac84ac0d">
+									<SHORT-NAME>HeaderAddress</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">This is the start address of the bootloader's FblHeader structure (defined in module fbl_main.c). The bootloader header can be located at an arbitrary address using the provided section #pragma instructions.
+
+CAUTION:
+If the application software uses the FblStart mechanism to enter the bootloader, you have to update fbl_cfg.h on change of the FBL header address!</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>0</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="DCE:271c4a27-9d52-46d9-a931-92fd545554df">
+									<SHORT-NAME>DiagBufferLength</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">This is the size of the RAM buffer which is used to store diagnostic request/response messages. Usually, the download performance will benefit from choosing bigger buffer sizes. The maximum buffer size is 4095 byte.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>255</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="DCE:775a06aa-a46b-448c-a689-a13fb338082e">
+									<SHORT-NAME>P2Time</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Specify the P2 diagnostic timeout here. The FBL will always send a response, before P2 expires.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>20</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="DCE:98f37180-611f-492d-8d11-e733bdb4ddce">
+									<SHORT-NAME>ReloadP3Time</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">P2* diagnostic response pending time. The FBL will send response pending messages while processing long-lasting service requests. Use this option to configure the response pending timing.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>5000</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="DCE:79c38191-2a5f-462c-95c3-e6d68da3883f">
+									<SHORT-NAME>S3TimeExtSession</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Specifiy the S3 diagnostic timeout for the extended session here. Time for the FBL to keep the extended diagnostic session active while not receiving any diagnostic request message.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>5000</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="DCE:87124c6a-b56d-4af7-840b-e0ec73dfc073">
+									<SHORT-NAME>S3TimeProgSession</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Specify the S3 diagnostic timeout for the programming session here. Time for the FBL to keep the programming diagnostic session active while not receiving any diagnostic request message.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>60000</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="DCE:40735f1a-eec9-46e0-9761-73566ffd305a">
+									<SHORT-NAME>FillCode</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">The gaps between two download segments will be filled with the specified byte code. It's recommended to use an illegal opcode according to the used hardware platform.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>255</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:e2dcbc05-bb51-4a75-827b-466e137fc3fc">
+									<SHORT-NAME>UseOwnMemCpyFunc</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">If enabled, the bootloader will use an internal memory copy function instead of the library memcpy() function of the compiler vendor.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:7f2711a7-de38-4863-beb3-80f9d17461e1">
+									<SHORT-NAME>EnableGatewaySupport</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">This option is used for bootloaders that are connected to multiple CAN networks and contains a gateway support feature. 
+It controls if the bootloader shall support or not the gateway feature. The gateway feature routes messages from a main network to one or more sub networks, depending on the feature of the gateway support in the bootloader.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:734654f6-f257-451e-a965-94bfe95e9ad1">
+									<SHORT-NAME>PresencePattern</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Logical blocks and/or application validation is checked using presence patterns at the end of each logical block. If this option is used, the decision if an application is available can be made without loading a memory driver (e.g. Eeprom Emulation or external Eeprom).</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:a7926467-8c2c-4c49-a2ee-af748a7a6a9b">
+									<SHORT-NAME>FblStartFunction</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">This option provides a user-friendly way to start the bootloader from within the application by using the macro CallFblStart().
+
+PRECONDITIONS:
+- The FblHeader address is configured correctly (see GENy component FblDrvCan_*).
+- The application module which uses CallFblStart() includes fbl_def.h (fbl_cfg.h has to be provided, too). Remember to update fbl_cfg.h if the address of FblHeader changes!
+
+By disabling this option, the user can gain more influence on how the transition from application to bootloader is done.
+This is the procedure which has to be followed:
+- Set a flag in the application software
+- Issue a reset
+- Check flag in user adaptable function fbl_apnv.c::ApplFblExtProgRequest() and provide the appropriate return value.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:0494f6ea-e332-4eb6-aa2b-8bbe473a1235">
+									<SHORT-NAME>CommonData</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">By enabling this option, the bootloader provides an interface to access (constant) data which is linked with the bootloader. This enables the application software to read e.g. DID values from the same memory location as the bootloader. In particular, this is useful for DIDs that report hardware specific information which doesn't change if the application software is updated.
+The structure of the common data is completely user specific and can be declared in file comdat.h. The actual structure definition is usually located in file fbl_ap.c. The bootloader stores the address of this structure in the FblHeader. The respective value can be retrieved by using macro GetFblCommonDataPtr().
+To access the common data via GetFblCommonDataPtr(), the application software has to include the files fbl_def.h (which itself needs fbl_cfg.h) and comdat.h.
+For more detailed usage information, please refer to the respective technical reference.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:4cd92364-1248-497b-9a8d-6c3c40bb37b1">
+									<SHORT-NAME>ResponseAfterReset</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Send the response to a default session request or a reset request after the ECU has been reset.
+
+Before the reset, a response pending message is sent by the Bootloader. The actual response has to be sent by the application software or the Bootloader depending on a flag set in non-initialized memory.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:c48dc0da-c1bf-41c5-b941-015b2e908c36">
+									<SHORT-NAME>UserSubfunction</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">This option can be activated if user specific subfunction parameters have to be supported which are not defined within the OEM specification.
+If the bootloader receives a request with a supported service identifier and an unknown subfunction parameter, the user adaptable function fbl_apdi.c::ApplDiagUserSubFunction() will be called.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:1bdc8b34-b191-4098-bdc1-eb4641553fbc">
+									<SHORT-NAME>UserService</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">This option can be activated if user specific diagnostic services have to be supported which are not defined within the OEM specification.
+If the bootloader receives a request with an unsupported service identifier, the user adaptable function fbl_apdi.c::ApplDiagUserService() will be called.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:b4d1cbd8-eefb-421b-9d35-20899f65cfc5">
+									<SHORT-NAME>UserRoutine</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">This option can be activated if user specific diagnostic routines have to be supported which are not defined within the OEM specification.
+If the bootloader receives a request with an unsupported routine ID, the user adaptable function fbl_apdi.c::ApplDiagRoutineControl() will be called.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:e9a33483-36d1-4dbc-b6fa-e2d0e551bbca">
+									<SHORT-NAME>Watchdog_Enable</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">If this option is enabled, the bootloader provides an API for watchdog service handling. User specific watchdog service code can be added to function fbl_apwd.c::ApplFblWDTrigger().</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>true</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="DCE:27e1f5c0-ab12-47ba-8338-a338849e9ece">
+									<SHORT-NAME>Watchdog_Time</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">If the watchdog service is enabled, the bootloader will call user function fbl_apwd.c::ApplFblWDTrigger() with the specified cycle time.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>1</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="DCE:ed717ce8-2ed3-4b82-b8c4-582481eaa2ef">
+									<SHORT-NAME>TimerClock</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">The FBL needs a  timebase which is generated by one of the system timers. The timer clock value that has to be configured here is the base frequency for this timer. This value is used to compute the corresponding timer compare/reload and prescaler values for timer hardware initialization. NOTE: If you multiply the frequency with a PLL, you have to multiply this value, too.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>20000</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:d578bbb8-ab9b-4c6b-8eca-ba182baf1a4b">
+									<SHORT-NAME>EncryptionMode</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Enabling this option allows for transmission of encrypted data. The data which is received by the bootloader will be decrypted by means of a dedicated decryption module.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:985b657b-9809-41f2-9d53-82e76decbf46">
+									<SHORT-NAME>CompressionMode</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Enabling this option allows for transmission of compressed data. The data which is received by the bootloader will be decompressed by means of a dedicated compression module.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="DCE:68f8d4ce-1eda-4e4c-8059-694938dd5a95">
+									<SHORT-NAME>ProcBufferSize</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Defines the maximum output buffer size available for handling of preprocessed data, e.g. decryption or decompression.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>0</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:c7f278c2-b617-4329-992d-e81da00634c3">
+									<SHORT-NAME>TransferDataChecksum</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">If enabled the signature verification will take the downloaded data instead of the data written to non-volatile memory (e.g. flash) as input.
+The transferred data is passed to the hash/checksum calculation before any data processing takes place. E.g. if compressed data is downloaded the signature is calculated over the compressed data and not the uncompressed contents actually written to flash.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="DCE:3f82f025-aa97-4e57-811f-16304a944f5f">
+									<SHORT-NAME>SigVerificationLength</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Defines the maximum data length passed to the on-the-fly verification in a single processing cycle.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>0</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:e4f0dca5-1737-4090-a8fa-33c7899d365a">
+									<SHORT-NAME>AdaptiveDataTransferRcrrp</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Disable to force the transmission of the first RCR-RP (Response Pending) message before starting processing of the download data.
+If enabled the first RCR-RP will be conditionally send based on the P2 timeout. Requires that a single program operation takes less than P2!
+Programming time depends on "Write segmentation" and/or "Data processing buffer size"
+Also applies to times required by on-the-fly signature verification and data processing.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:740e8c93-ac50-4f24-9699-2a6f6bead352">
+									<SHORT-NAME>PipelinedProgramming</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">With this feature enabled, the FBL immediately sends a positive response after the reception of a TransferData request, so that the next data transfer can be performed while the previous data block is programmed. The same parallelization applies to the signature calculation over the transfer data in RAM and the decompression/decryption of the received data. In best case only the pure transmission time is required.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:e589e2df-d079-4a2b-9a35-e3f5a6da8cce">
+									<SHORT-NAME>SuspendProgramming</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Memory driver can be suspended in mid-operation by external event.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="DCE:a87439a5-06d2-4eb4-bd9a-32cd62d6be52">
+									<SHORT-NAME>WriteSegmentation</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Defines the maximum data length passed to the programming routine in a single processing cycle.
+Used for options "Adaptive RCR-RP for TransferData service" and "Pipelined programming".</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>0</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<BOOLEAN-PARAM-DEF UUID="DCE:8aa1dfe8-99f9-4fdb-a04e-8c8181a7e4a7">
+									<SHORT-NAME>UnalignedDataTransfer</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">If enabled the data transferred during download using the TransferData service can be of arbitrary length.
+Otherwise all data transfers have to be aligned to a multiple of the largest memory write segment size.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>false</DEFAULT-VALUE>
+								</BOOLEAN-PARAM-DEF>
+							</PARAMETERS>
+							<REFERENCES>
+								<!-- Reference Definition: FrPhysicalRx-->
+								<REFERENCE-PARAM-DEF UUID="c1115bbd-f86d-407e-b1b3-3e2932459341">
+									<SHORT-NAME>FrPhysicalRx</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Connections of the FrTp are shown in this Drop-down list.
+The chosen connection is used to receive physical diagnostic requests.
+Usually the Physical Rx and Physical Tx connection is the same (Full-duplex).</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<ORIGIN>Vector Informatik</ORIGIN>
+									<DESTINATION-REF DEST="PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcuC/PduCollection/Pdu</DESTINATION-REF>
+								</REFERENCE-PARAM-DEF>
+								<!-- Reference Definition: FrPhysicalRx2-->
+								<REFERENCE-PARAM-DEF UUID="915df805-97f1-414b-920e-d605f417441d">
+									<SHORT-NAME>FrPhysicalRx2</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Configure an additional physical FlexRay connection here. The option can allows you to receive both ISO and L4G frames within the Bootloader.
+
+Configuration example:
+FlexRay Physical Rx connection: Choose the physical FrTp connection which uses short FrTp_ISO-Frames
+Additional FlexRay Physical Rx connection: Choose the physical FrTp connection which uses long FrTp_L4G-Frames</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<ORIGIN>Vector Informatik</ORIGIN>
+									<DESTINATION-REF DEST="PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcuC/PduCollection/Pdu</DESTINATION-REF>
+								</REFERENCE-PARAM-DEF>
+								<!-- Reference Definition: FrFunctionalRx-->
+								<REFERENCE-PARAM-DEF UUID="b00a87fa-fbca-4439-ba72-6b4902b9f30d">
+									<SHORT-NAME>FrFunctionalRx</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Connections of the FrTp are shown in this Drop-down list.
+The chosen connection is used to receive functional diagnostic requests.</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<ORIGIN>Vector Informatik</ORIGIN>
+									<DESTINATION-REF DEST="PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcuC/PduCollection/Pdu</DESTINATION-REF>
+								</REFERENCE-PARAM-DEF>
+								<!-- Reference Definition: FrPhysicalTx-->
+								<REFERENCE-PARAM-DEF UUID="09f8661f-1e8c-48f4-8740-8cc84c3118af">
+									<SHORT-NAME>FrPhysicalTx</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Connections of the FrTp are shown in this Drop-down list.
+The chosen connection is used to send physical diagnostic responses.
+The connection is also used to send response pendings while flash programming.
+Usually the Physical Rx and Physical Tx connection is the same (Full-duplex).</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<ORIGIN>Vector Informatik</ORIGIN>
+									<DESTINATION-REF DEST="PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcuC/PduCollection/Pdu</DESTINATION-REF>
+								</REFERENCE-PARAM-DEF>
+								<!-- Reference Definition: FrPhysicalTx2-->
+								<REFERENCE-PARAM-DEF UUID="61509764-5fcd-4c98-96b0-2514f33e7f5a">
+									<SHORT-NAME>FrPhysicalTx2</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">Configure an additional physical FlexRay response connection here. The option can allows you to send responses with the correct TP frame format (ISO or L4G).
+
+Configuration example:
+FlexRay Physical Tx connection: Choose the physical FrTp connection which uses short FrTp_ISO-Frames
+Additional FlexRay Physical Tx connection: Choose the physical FrTp connection which uses long FrTp_L4G-Frames</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<ORIGIN>Vector Informatik</ORIGIN>
+									<DESTINATION-REF DEST="PARAM-CONF-CONTAINER-DEF">/AUTOSAR/EcuC/PduCollection/Pdu</DESTINATION-REF>
+								</REFERENCE-PARAM-DEF>
+							</REFERENCES>
+						</PARAM-CONF-CONTAINER-DEF>
+						<PARAM-CONF-CONTAINER-DEF UUID="DCE:e62080d9-a8f3-4fe9-bfeb-e26c229cf5ec">
+							<SHORT-NAME>Fbt</SHORT-NAME>
+							<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+							<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+							<SUB-CONTAINERS>
+								<PARAM-CONF-CONTAINER-DEF UUID="DCE:655edd7d-8e9b-48e3-9ae7-0b980d3f5eda">
+									<SHORT-NAME>Entry</SHORT-NAME>
+									<LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+									<PARAMETERS>
+										<INTEGER-PARAM-DEF UUID="DCE:4e0a1a43-2878-4e62-83ed-29338fabbd96">
+											<SHORT-NAME>MemoryIdentifier</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Selects the address space of the defined addresses</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>255</DEFAULT-VALUE>
+											<MAX>0</MAX>
+											<MIN>0</MIN>
+										</INTEGER-PARAM-DEF>
+										<INTEGER-PARAM-DEF UUID="DCE:f3f0236f-f0f2-4f56-9569-4bab666f8b5d">
+											<SHORT-NAME>StartAddress</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Logical start address of the logical block.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>0</DEFAULT-VALUE>
+										</INTEGER-PARAM-DEF>
+										<INTEGER-PARAM-DEF UUID="DCE:cd42e101-7b61-4ecb-83bc-b756722fb538">
+											<SHORT-NAME>EndAddress</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Logical end address of the logical block.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>0</DEFAULT-VALUE>
+										</INTEGER-PARAM-DEF>
+										<STRING-PARAM-DEF UUID="DCE:70563855-1fe6-4c0c-bfa3-2627d4598738">
+											<SHORT-NAME>Description</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Short description of this Flash Block</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+										</STRING-PARAM-DEF>
+									</PARAMETERS>
+									<REFERENCES>
+										<REFERENCE-PARAM-DEF UUID="d76fe00d-7a60-4c2a-87f4-5fb3810bae48">
+											<SHORT-NAME>DeviceType</SHORT-NAME>
+											<LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<DESTINATION-REF DEST="PARAM-CONF-CONTAINER-DEF">/MICROSAR/GenTool_GenyFblCanBase_Def/Mdt/Entry</DESTINATION-REF>
+										</REFERENCE-PARAM-DEF>
+										<REFERENCE-PARAM-DEF UUID="09de212a-8326-4ca8-9722-3abf40303f53">
+											<SHORT-NAME>LogicalBlock</SHORT-NAME>
+											<LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<DESTINATION-REF DEST="PARAM-CONF-CONTAINER-DEF">/MICROSAR/GenTool_GenyFblCanBase_Def/Lbt/Entry</DESTINATION-REF>
+										</REFERENCE-PARAM-DEF>
+									</REFERENCES>
+								</PARAM-CONF-CONTAINER-DEF>
+							</SUB-CONTAINERS>
+						</PARAM-CONF-CONTAINER-DEF>
+						<PARAM-CONF-CONTAINER-DEF UUID="DCE:25b7c438-bd71-4f20-9d36-74a041c05026">
+							<SHORT-NAME>Lbt</SHORT-NAME>
+							<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+							<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+							<SUB-CONTAINERS>
+								<PARAM-CONF-CONTAINER-DEF UUID="DCE:43bf0ac6-e5df-41fa-badd-e09eb15c320d">
+									<SHORT-NAME>Entry</SHORT-NAME>
+									<LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+									<PARAMETERS>
+										<STRING-PARAM-DEF UUID="DCE:0d5a707e-7b57-4b3b-afb8-995a5f2073f5">
+											<SHORT-NAME>Name</SHORT-NAME>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+										</STRING-PARAM-DEF>
+										<INTEGER-PARAM-DEF UUID="DCE:cfbb15f3-a0de-42bd-abca-c4a3df92fd8a">
+											<SHORT-NAME>BlockIndex</SHORT-NAME>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>0</DEFAULT-VALUE>
+										</INTEGER-PARAM-DEF>
+										<INTEGER-PARAM-DEF UUID="DCE:e8d80b0f-17b4-42cb-9647-c96a25d58594">
+											<SHORT-NAME>Disposability</SHORT-NAME>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+										</INTEGER-PARAM-DEF>
+										<INTEGER-PARAM-DEF UUID="DCE:44e1691d-e5f4-41cf-96f8-9a4e139eeb3f">
+											<SHORT-NAME>HeaderAddress</SHORT-NAME>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>0</DEFAULT-VALUE>
+										</INTEGER-PARAM-DEF>
+										<INTEGER-PARAM-DEF UUID="DCE:3341436f-931a-46ff-a7bf-36db97aa4b80">
+											<SHORT-NAME>PresencePatternAddress</SHORT-NAME>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>0</DEFAULT-VALUE>
+										</INTEGER-PARAM-DEF>
+										<INTEGER-PARAM-DEF UUID="DCE:42a6f715-6053-4327-9739-5c1d1bd0f954">
+											<SHORT-NAME>MaxReprogAttempts</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Maximum number of reprogramming cycles</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>0</DEFAULT-VALUE>
+										</INTEGER-PARAM-DEF>
+										<STRING-PARAM-DEF UUID="DCE:dfc37a4b-ea20-4fba-9263-6e1c8870e0ac">
+											<SHORT-NAME>Description</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Short description of this Logical Block</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+										</STRING-PARAM-DEF>
+										<STRING-PARAM-DEF UUID="DCE:7842fbab-15a3-4b4e-a623-c49c5a6c8321">
+											<SHORT-NAME>VerificationRam</SHORT-NAME>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+										</STRING-PARAM-DEF>
+										<STRING-PARAM-DEF UUID="DCE:04865740-77df-453a-9046-b115c2a478b6">
+											<SHORT-NAME>VerificationRom</SHORT-NAME>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+										</STRING-PARAM-DEF>
+									</PARAMETERS>
+								</PARAM-CONF-CONTAINER-DEF>
+							</SUB-CONTAINERS>
+						</PARAM-CONF-CONTAINER-DEF>
+						<PARAM-CONF-CONTAINER-DEF UUID="0a5e8177-2574-411e-b75f-2d8cc8031fb0">
+							<SHORT-NAME>Mdt</SHORT-NAME>
+							<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+							<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+							<SUB-CONTAINERS>
+								<PARAM-CONF-CONTAINER-DEF UUID="aa6ef673-2171-4c16-b506-e3330b151418">
+									<SHORT-NAME>Entry</SHORT-NAME>
+									<LOWER-MULTIPLICITY>0</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>*</UPPER-MULTIPLICITY>
+									<PARAMETERS>
+										<STRING-PARAM-DEF UUID="c7ce6e4e-c1b4-43b7-938f-cd1b7159c079">
+											<SHORT-NAME>NameOfDeviceType</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Name of the memory device type selectable in the flash block table. The memory device name is used to reference the memory device driver functions.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+										</STRING-PARAM-DEF>
+										<INTEGER-PARAM-DEF UUID="8cbe604e-0401-4c7f-9b3d-78c841ad2afb">
+											<SHORT-NAME>SegmentSize</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Write segment size of memory device. The write segment size is the smallest entity that can be programmed in one write access. Refer to the memory device specification for this value.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>1</DEFAULT-VALUE>
+										</INTEGER-PARAM-DEF>
+										<INTEGER-PARAM-DEF UUID="e11cefc9-38a1-4241-b4bc-bdb6a992b039">
+											<SHORT-NAME>ErasedValue</SHORT-NAME>
+											<DESC>
+												<L-2 L="EN">Erased value of the memory device. The erased value is the memory content after the memory was erased. Refer to the memory device specification for this value.</L-2>
+											</DESC>
+											<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+											<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+											<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+											<DEFAULT-VALUE>255</DEFAULT-VALUE>
+											<MAX>255</MAX>
+											<MIN>0</MIN>
+										</INTEGER-PARAM-DEF>
+									</PARAMETERS>
+								</PARAM-CONF-CONTAINER-DEF>
+							</SUB-CONTAINERS>
+						</PARAM-CONF-CONTAINER-DEF>
+					</CONTAINERS>
+				</MODULE-DEF>
+			</ELEMENTS>
+		</AR-PACKAGE>
+	</TOP-LEVEL-PACKAGES>
+</AUTOSAR>

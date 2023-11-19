@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<GmProject Name="Application only, no calibration files" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="GmHeader.xsd">
+	<HeaderVersion>1.00</HeaderVersion>
+	<SignedHeaderInfo>
+		<!-- SignerInfoDummyKey.hex uses Vector Demo/Dummy Key and Dummy Subject name "Engine" -->
+		<image>SignerInfoDummyKey.hex</image>
+		<!-- ECU ID 0 is a module meant for all ECUs (no restriction to single unique) -->
+		<EcuId>00000000000000000000000000000000</EcuId>
+		<!-- Demo/Dummy Ecu name -->
+		<EcuName>DemoFbl1</EcuName>
+	</SignedHeaderInfo>
+	<AppHeaderInfo name="DemoAppl">
+		<HeaderAddress>0x0007C000</HeaderAddress>
+		<ModuleId>01</ModuleId>
+		<!-- Bootloader Compatibility ID, always 0x8000 for first release -->
+		<BCID>0x8000</BCID>
+		<!-- Not before ID, always starts with 0000 for first release  -->
+		<NBID>0000</NBID>
+		<!-- Design Level suffix, always starts with AA for first release -->
+		<DLS>AA</DLS>
+		<!-- Demo/Dummy part number, can be started with, replace with required number at some point -->
+		<PartNumber>0x11111111</PartNumber>
+		<!-- Please do not change MessageDigestDataProcessing value -->
+		<MessageDigestDataProcessing>32</MessageDigestDataProcessing>
+		<!-- Number of Partitions == 0 if no cal modules are used. Need to be consistent to defined "Partition" element number that follows -->
+		<Partitions NumberOfPartitions="0">
+		</Partitions>
+	</AppHeaderInfo>
+	<!-- Add a CalHeaderInfo structure per required cal (non if not required) -->
+</GmProject>

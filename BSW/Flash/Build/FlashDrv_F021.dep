@@ -1,0 +1,25 @@
+# this file is generated automatically by MakeSupport
+
+obj/flashdrv.obj: ../../Flash/flashdrv.c Makefile.config  ../../Flash/flashdrv.h \
+ ../../flash/build/f021_flash_api_v02.00.01/include/Types.h \
+ d:/uti/texas_instruments/4.9.5/include/stdint.h \
+ d:/uti/texas_instruments/4.9.5/include/stddef.h \
+ ../../flash/build/f021_flash_api_v02.00.01/include/CGT.CCS.h \
+ ../../Flash/flashdrv_cfg.h \
+ ../../flash/build/f021_flash_api_v02.00.01/include/F021.h \
+ ../../flash/build/f021_flash_api_v02.00.01/include/Helpers.h \
+ ../../flash/build/f021_flash_api_v02.00.01/include/Constants.h \
+ ../../flash/build/f021_flash_api_v02.00.01/include/Registers.h \
+ ../../flash/build/f021_flash_api_v02.00.01/include/Registers_FMC_BE.h \
+ ../../flash/build/f021_flash_api_v02.00.01/include/FapiFunctions.h \
+ ../../flash/build/f021_flash_api_v02.00.01/include/Compatibility.h
+
+# Manual file dependencies
+
+
+# Assembler file dependencies
+
+
+
+
+lib/libFlashDrv_F021.lib:  

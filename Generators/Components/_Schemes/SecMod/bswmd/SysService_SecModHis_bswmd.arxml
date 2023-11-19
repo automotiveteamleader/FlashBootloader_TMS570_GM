@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AUTOSAR xmlns="http://autosar.org/3.0.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TOP-LEVEL-PACKAGES>
+		<AR-PACKAGE UUID="1cfec670-caf5-4b3d-bb14-77e6b4206eda">
+			<SHORT-NAME>MICROSAR</SHORT-NAME>
+			<ELEMENTS>
+				<BSW-IMPLEMENTATION UUID="0a3f6594-0170-42dd-b44e-6ccfd419c229">
+					<SHORT-NAME>SysService_SecModHis_Impl</SHORT-NAME>
+					<CODE-GENERATOR>cMICROSAR,GENy</CODE-GENERATOR>
+					<PROGRAMMING-LANGUAGE>C</PROGRAMMING-LANGUAGE>
+					<AR-MAJOR-VERSION>3</AR-MAJOR-VERSION>
+					<AR-MINOR-VERSION>0</AR-MINOR-VERSION>
+					<AR-PATCH-VERSION>1</AR-PATCH-VERSION>
+					<VENDOR-SPECIFIC-MODULE-DEF-REF DEST="MODULE-DEF">/MICROSAR/SysService_SecModHis_Def</VENDOR-SPECIFIC-MODULE-DEF-REF>
+				</BSW-IMPLEMENTATION>
+				<MODULE-DEF UUID="5c427bda-80dc-487c-aafb-94f8b4e8b5af">
+					<SHORT-NAME>SysService_SecModHis_Def</SHORT-NAME>
+					<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+					<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+					<CONTAINERS>
+						<PARAM-CONF-CONTAINER-DEF UUID="5369c325-9ed0-4693-9b19-c939a761139f">
+							<SHORT-NAME>General</SHORT-NAME>
+							<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+							<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+							<PARAMETERS>
+								<INTEGER-PARAM-DEF UUID="44c34471-29cf-4681-97ba-970f07918f89">
+									<SHORT-NAME>ConstantForKey</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">This is the start address of the bootloader's FblHeader structure (defined in module fbl_main.c). The bootloader header can be located at an arbitrary address using the provided section #pragma instructions.
+
+CAUTION:
+If the application software uses the FblStart mechanism to enter the bootloader, you have to update fbl_cfg.h on change of the FBL header address!</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>0</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="895d7d3a-84b6-456a-a32e-f5aff64f184b">
+									<SHORT-NAME>TimeoutForKey</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">This is the start address of the bootloader's FblHeader structure (defined in module fbl_main.c). The bootloader header can be located at an arbitrary address using the provided section #pragma instructions.
+
+CAUTION:
+If the application software uses the FblStart mechanism to enter the bootloader, you have to update fbl_cfg.h on change of the FBL header address!</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>0</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<INTEGER-PARAM-DEF UUID="5141e44c-7eaa-4e63-8a16-c91da19f50ae">
+									<SHORT-NAME>CallCycle</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">This is the start address of the bootloader's FblHeader structure (defined in module fbl_main.c). The bootloader header can be located at an arbitrary address using the provided section #pragma instructions.
+
+CAUTION:
+If the application software uses the FblStart mechanism to enter the bootloader, you have to update fbl_cfg.h on change of the FBL header address!</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>0</DEFAULT-VALUE>
+								</INTEGER-PARAM-DEF>
+								<ENUMERATION-PARAM-DEF UUID="dc2f1d86-7eb6-4964-b55d-cfbe95704849">
+									<SHORT-NAME>CRC</SHORT-NAME>
+									<DESC>
+										<L-2 L="EN">0 Size optimized
+1 Speed optimized</L-2>
+									</DESC>
+									<LOWER-MULTIPLICITY>1</LOWER-MULTIPLICITY>
+									<UPPER-MULTIPLICITY>1</UPPER-MULTIPLICITY>
+									<IMPLEMENTATION-CONFIG-CLASSES>
+										<IMPLEMENTATION-CONFIG-CLASS>
+											<CONFIG-CLASS>LINK</CONFIG-CLASS>
+											<CONFIG-VARIANT>VARIANT-LINK-TIME</CONFIG-VARIANT>
+										</IMPLEMENTATION-CONFIG-CLASS>
+										<IMPLEMENTATION-CONFIG-CLASS>
+											<CONFIG-CLASS>PRE-COMPILE</CONFIG-CLASS>
+											<CONFIG-VARIANT>VARIANT-PRE-COMPILE</CONFIG-VARIANT>
+										</IMPLEMENTATION-CONFIG-CLASS>
+										<IMPLEMENTATION-CONFIG-CLASS>
+											<CONFIG-CLASS>LINK</CONFIG-CLASS>
+											<CONFIG-VARIANT>VARIANT-POST-BUILD</CONFIG-VARIANT>
+										</IMPLEMENTATION-CONFIG-CLASS>
+									</IMPLEMENTATION-CONFIG-CLASSES>
+									<ORIGIN>AUTOSAR_ECUC</ORIGIN>
+									<SYMBOLIC-NAME-VALUE>false</SYMBOLIC-NAME-VALUE>
+									<DEFAULT-VALUE>NO_WAKEUP</DEFAULT-VALUE>
+									<LITERALS>
+										<ENUMERATION-LITERAL-DEF UUID="66c93bba-7e65-4db4-afa1-aa29b6e440ce">
+											<SHORT-NAME>SIZE_OPTIMIZED</SHORT-NAME>
+										</ENUMERATION-LITERAL-DEF>
+										<ENUMERATION-LITERAL-DEF UUID="87256d34-a062-4cb6-a87a-1e6fc90cb1e5">
+											<SHORT-NAME>SPEED_OPTIMIZED</SHORT-NAME>
+										</ENUMERATION-LITERAL-DEF>
+									</LITERALS>
+								</ENUMERATION-PARAM-DEF>
+							</PARAMETERS>
+						</PARAM-CONF-CONTAINER-DEF>
+					</CONTAINERS>
+				</MODULE-DEF>
+			</ELEMENTS>
+		</AR-PACKAGE>
+	</TOP-LEVEL-PACKAGES>
+</AUTOSAR>

@@ -1,0 +1,268 @@
+******************************************************************************
+                  TMS470 Linker PC v4.9.5                      
+******************************************************************************
+>> Linked Fri Feb 20 18:20:10 2015
+
+OUTPUT FILE NAME:   <FlashDrv_F021.out>
+ENTRY POINT SYMBOL: "_c_int00"  address: 08001da4
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  SIGN                  08001000   00000014  00000014  00000000  RW  
+  ALL                   08001015   000017ea  000011cb  0000061f  RW  
+  FLSRAM                08002800   00000400  00000305  000000fb  RW  
+  STACK                 08002c00   00000400  00000400  00000000  RW  
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+08001000    08001000    0000119a   0000119a    r-x
+  08001000    08001000    00000014   00000014    r-- .SIGNATURE
+  08001018    08001018    00001182   00001182    r-x .text
+0800219c    0800219c    00000021   00000021    rw-
+  0800219c    0800219c    00000021   00000021    rw- .data
+080021c0    080021c0    00000028   00000028    r--
+  080021c0    080021c0    00000028   00000028    r-- .cinit
+08002800    08002800    00000305   00000000    rw-
+  08002800    08002800    00000305   00000000    rw- .bss
+08002c00    08002c00    00000400   00000000    rw-
+  08002c00    08002c00    00000400   00000000    rw- .stack
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.SIGNATURE 
+*          0    08001000    00000014     
+                  08001000    00000014     flashdrv.obj (.SIGNATURE)
+
+.text      0    08001018    00001182     
+                  08001018    0000049c     flashdrv.obj (.text)
+                  080014b4    0000025c     F021_API_CortexR4_BE_V3D16.lib : FlashStateMachine.InitializeFlashBanks.obj (.text:Fapi_initializeFlashBanks)
+                  08001710    00000178                                    : FlashStateMachine.SetActiveBank.obj (.text:Fapi_setActiveFlashBank)
+                  08001888    00000174                                    : Program.obj (.text:Fapi_issueProgrammingCommand)
+                  080019fc    00000114                                    : Info.Bank.obj (.text:Fapi_getBankSectors)
+                  08001b10    0000009c     rtsv7R4_T_be_v3D16_eabi.lib : memcpy_t2.obj (.text)
+                  08001bac    00000098                                 : auto_init.obj (.text)
+                  08001c44    0000007c     F021_API_CortexR4_BE_V3D16.lib : Read.CheckDword.obj (.text:_Fapi_checkRegionForValue)
+                  08001cc0    0000007c                                    : Read.Common.obj (.text:_Fapi_enterMarginMode)
+                  08001d3c    00000066                                    : Read.LoopDword.obj (.text:_Fapi_loopRegionForValue)
+                  08001da2    00000002     --HOLE-- [fill = 0]
+                  08001da4    00000064     rtsv7R4_T_be_v3D16_eabi.lib : boot.obj (.text)
+                  08001e08    00000060                                 : copy_decompress_rle.obj (.text)
+                  08001e68    00000050     F021_API_CortexR4_BE_V3D16.lib : FlashStateMachine.Hercules.IsEccAddress.obj (.text:Fapi_isAddressEcc)
+                  08001eb8    0000004c     rtsv7R4_T_be_v3D16_eabi.lib : cpy_tbl.obj (.text)
+                  08001f04    00000044                                 : exit.obj (.text)
+                  08001f48    0000003c     F021_API_CortexR4_BE_V3D16.lib : FlashStateMachine.IssueFsmCommand.obj (.text:_Fapi_issueFsmCommand)
+                  08001f84    00000030                                    : Async.WithAddress.obj (.text:Fapi_issueAsyncCommandWithAddress)
+                  08001fb4    00000030                                    : Utilities.WaitDelay.obj (.text:Fapi_waitDelay)
+                  08001fe4    00000030                                    : Read.Common.obj (.text:_Fapi_exitMarginMode)
+                  08002014    0000002c                                    : Utilities.CalculateFletcher.obj (.text:Fapi_calculateFletcherChecksum)
+                  08002040    0000002c                                    : Read.Common.obj (.text:_Fapi_readDword)
+                  0800206c    0000002a                                    : Async.obj (.text:Fapi_issueAsyncCommand)
+                  08002096    00000022                                    : Read.FlushPipeline.obj (.text:Fapi_flushPipeline)
+                  080020b8    0000001c                                    : FlashStateMachine.InitializeFlashBanks.obj (.text:_Fapi_divideUnsignedLong)
+                  080020d4    00000018     rtsv7R4_T_be_v3D16_eabi.lib : _lock.obj (.text)
+                  080020ec    00000018                                 : args_main.obj (.text)
+                  08002104    00000014     F021_API_CortexR4_BE_V3D16.lib : Utilities.CalculateEcc.obj (.text:Fapi_calculateEcc)
+                  08002118    00000014                                    : Info.Bank.obj (.text:_Fapi_scaleSectorSize)
+                  0800212c    00000014     rtsv7R4_T_be_v3D16_eabi.lib : icall16.obj (.text)
+                  08002140    00000012     F021_API_CortexR4_BE_V3D16.lib : Verify.obj (.text:Fapi_doVerify)
+                  08002152    00000002     --HOLE-- [fill = 0]
+                  08002154    00000010                                    : FlashStateMachine.ScaleFclk.obj (.text:_scaleEEFclk)
+                  08002164    00000010                                    : FlashStateMachine.ScaleFclk.obj (.text:_scaleMainFclk)
+                  08002174    0000000e     rtsv7R4_T_be_v3D16_eabi.lib : copy_decompress_none.obj (.text:decompress:none)
+                  08002182    0000000c     F021_API_CortexR4_BE_V3D16.lib : Read.WdService.obj (.text:_Fapi_checkWdService)
+                  0800218e    00000006     rtsv7R4_T_be_v3D16_eabi.lib : copy_decompress_rle.obj (.text:decompress:rle24)
+                  08002194    00000006                                 : copy_decompress_rle.obj (.text:decompress:rle)
+
+.data      0    0800219c    00000021     
+                  0800219c    00000008     F021_API_CortexR4_BE_V3D16.lib : FlashStateMachine.ScaleFclk.obj (.data)
+                  080021a4    00000008     rtsv7R4_T_be_v3D16_eabi.lib : _lock.obj (.data)
+                  080021ac    00000008                                 : exit.obj (.data)
+                  080021b4    00000004                                 : boot.obj (.data)
+                  080021b8    00000004                                 : stkdepth_vars.obj (.data)
+                  080021bc    00000001     F021_API_CortexR4_BE_V3D16.lib : FlashStateMachine.SetActiveBank.obj (.data)
+
+.cinit     0    080021c0    00000028     
+                  080021c0    00000015     (.cinit..data.load) [load image, compression = rle]
+                  080021d5    00000003     --HOLE-- [fill = 0]
+                  080021d8    00000008     (__TI_handler_table)
+                  080021e0    00000008     (__TI_cinit_table)
+
+.bss       0    08002800    00000305     UNINITIALIZED
+                  08002800    00000300     flashdrv.obj (.bss:flashSectorInfo)
+                  08002b00    00000005     flashdrv.obj (.bss)
+
+.stack     0    08002c00    00000400     UNINITIALIZED
+                  08002c00    00000400     --HOLE--
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 080021e0 records: 1, size/record: 8, table size: 8
+	.data: load addr=080021c0, load size=00000015 bytes, run addr=0800219c, run size=00000021 bytes, compression=rle
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 080021d8 records: 2, size/record: 4, table size: 8
+	index: 0, handler: __TI_decompress_rle24
+	index: 1, handler: __TI_decompress_none
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address    name
+--------   ----
+08001f05   C$$EXIT
+0800138b   ExpFlashDeinit
+080012a1   ExpFlashErase
+08001445   ExpFlashInit
+08001245   ExpFlashWrite
+08002105   Fapi_calculateEcc
+08002015   Fapi_calculateFletcherChecksum
+08002141   Fapi_doVerify
+08001075   Fapi_enableEepromBankSectors
+080010e7   Fapi_enableMainBankSectors
+08002097   Fapi_flushPipeline
+080019fd   Fapi_getBankSectors
+080014b5   Fapi_initializeFlashBanks
+08001e69   Fapi_isAddressEcc
+0800206d   Fapi_issueAsyncCommand
+08001f85   Fapi_issueAsyncCommandWithAddress
+08001889   Fapi_issueProgrammingCommand
+080014a1   Fapi_serviceWatchdogTimer
+08001711   Fapi_setActiveFlashBank
+08001fb5   Fapi_waitDelay
+0800212d   IND$CALL
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+08001c45   _Fapi_checkRegionForValue
+08002183   _Fapi_checkWdService
+08001cc1   _Fapi_enterMarginMode
+08001fe5   _Fapi_exitMarginMode
+08001f49   _Fapi_issueFsmCommand
+08001d3d   _Fapi_loopRegionForValue
+08002041   _Fapi_readDword
+08003000   __STACK_END
+00000400   __STACK_SIZE
+080021e0   __TI_CINIT_Base
+080021e8   __TI_CINIT_Limit
+080021d8   __TI_Handler_Table_Base
+080021e0   __TI_Handler_Table_Limit
+00000001   __TI_args_main
+08001bad   __TI_auto_init
+08002175   __TI_decompress_none
+08002195   __TI_decompress_rle
+0800218f   __TI_decompress_rle24
+080021c0   __TI_static_base__
+08001b11   __aeabi_memcpy
+08001b11   __aeabi_memcpy4
+08001b11   __aeabi_memcpy8
+ffffffff   __binit__
+ffffffff   __c_args__
+08002c00   __stack
+080020ed   _args_main
+08001da4   _c_int00
+080021ac   _cleanup_ptr
+080021b0   _dtors_ptr
+080021a4   _lock
+080020e1   _nop
+080020db   _register_lock
+080020d5   _register_unlock
+08002155   _scaleEEFclk
+08002165   _scaleMainFclk
+080021b4   _stkchk_called
+080021a8   _unlock
+08001f09   abort
+ffffffff   binit
+08001eb9   copy_in
+08001f11   exit
+08001000   flashHeader
+08001019   main
+080021b8   main_func_sp
+08001b11   memcpy
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address    name
+--------   ----
+00000001   __TI_args_main
+00000400   __STACK_SIZE
+08001000   flashHeader
+08001019   main
+08001075   Fapi_enableEepromBankSectors
+080010e7   Fapi_enableMainBankSectors
+08001245   ExpFlashWrite
+080012a1   ExpFlashErase
+0800138b   ExpFlashDeinit
+08001445   ExpFlashInit
+080014a1   Fapi_serviceWatchdogTimer
+080014b5   Fapi_initializeFlashBanks
+08001711   Fapi_setActiveFlashBank
+08001889   Fapi_issueProgrammingCommand
+080019fd   Fapi_getBankSectors
+08001b11   __aeabi_memcpy
+08001b11   __aeabi_memcpy4
+08001b11   __aeabi_memcpy8
+08001b11   memcpy
+08001bad   __TI_auto_init
+08001c45   _Fapi_checkRegionForValue
+08001cc1   _Fapi_enterMarginMode
+08001d3d   _Fapi_loopRegionForValue
+08001da4   _c_int00
+08001e69   Fapi_isAddressEcc
+08001eb9   copy_in
+08001f05   C$$EXIT
+08001f09   abort
+08001f11   exit
+08001f49   _Fapi_issueFsmCommand
+08001f85   Fapi_issueAsyncCommandWithAddress
+08001fb5   Fapi_waitDelay
+08001fe5   _Fapi_exitMarginMode
+08002015   Fapi_calculateFletcherChecksum
+08002041   _Fapi_readDword
+0800206d   Fapi_issueAsyncCommand
+08002097   Fapi_flushPipeline
+080020d5   _register_unlock
+080020db   _register_lock
+080020e1   _nop
+080020ed   _args_main
+08002105   Fapi_calculateEcc
+0800212d   IND$CALL
+08002141   Fapi_doVerify
+08002155   _scaleEEFclk
+08002165   _scaleMainFclk
+08002175   __TI_decompress_none
+08002183   _Fapi_checkWdService
+0800218f   __TI_decompress_rle24
+08002195   __TI_decompress_rle
+080021a4   _lock
+080021a8   _unlock
+080021ac   _cleanup_ptr
+080021b0   _dtors_ptr
+080021b4   _stkchk_called
+080021b8   main_func_sp
+080021c0   __TI_static_base__
+080021d8   __TI_Handler_Table_Base
+080021e0   __TI_CINIT_Base
+080021e0   __TI_Handler_Table_Limit
+080021e8   __TI_CINIT_Limit
+08002c00   __stack
+08003000   __STACK_END
+ffffffff   __binit__
+ffffffff   __c_args__
+ffffffff   binit
+UNDEFED    SHT$$INIT_ARRAY$$Base
+UNDEFED    SHT$$INIT_ARRAY$$Limit
+
+[68 symbols]

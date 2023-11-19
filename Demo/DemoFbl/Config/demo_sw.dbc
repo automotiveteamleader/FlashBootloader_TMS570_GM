@@ -1,0 +1,172 @@
+VERSION "HIPFNYYYYYYYYYYYYYYYYYYYYYYYYYYYNNNNNNNNNN/4/%%%/4/'%**4NNN///"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: Slave02 Slave01 DUT1 Tester DUT
+
+
+BO_ 1617 USDT_RespFromSlave02: 8 Slave02
+ SG_ DgnInf_GM_RespFromSlave02 : 7|64@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 1616 USDT_RespFromSlave01: 8 Slave01
+ SG_ DgnInf_GM_RespFromSlave01 : 7|64@0+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 593 USDT_ReqToSlave02: 8 Vector__XXX
+ SG_ DgnInf_GM_ReqToSlave02 : 7|64@0+ (1,0) [0|0] ""  Slave02
+
+BO_ 592 USDT_ReqToSlave01: 8 Vector__XXX
+ SG_ DgnInf_GM_ReqToSlave01 : 7|64@0+ (1,0) [0|0] ""  Slave01
+
+BO_ 257 mAllNodeDiagRequest: 8 Tester
+ SG_ DgnInf_GM_AllNodeDiagRequest : 7|64@0+ (1,0) [0|0] ""  Slave02,Slave01,DUT
+
+BO_ 1605 USDT_RespFromDut1: 8 DUT1
+ SG_ DgnInf_GM_RespFromDut1 : 7|64@0+ (1,0) [0|0] ""  Tester
+
+BO_ 581 USDT_ReqToDut1: 8 Tester
+ SG_ DgnInf_GM_ReqToDut1 : 7|64@0+ (1,0) [0|0] ""  DUT1
+
+BO_ 1609 USDT_RespFromDut: 8 DUT
+ SG_ DgnInf_GM_RespFromDUT : 7|64@0+ (1,0) [0|0] ""  Tester
+
+BO_ 585 USDT_ReqToDut: 8 Tester
+ SG_ DgnInf_GM_ReqToDut : 7|64@0+ (1,0) [0|0] ""  DUT
+
+
+
+CM_ BU_ DUT1 "Multi Identity Module
+";
+CM_ BU_ Tester "CANoe sim tester
+";
+CM_ BU_ DUT "DUT = Device under test
+This is the module that is being tested by the CANoe sim with GMLAN";
+BA_DEF_ BU_  "TpOwnSystemEcuNumber" HEX 0 255;
+BA_DEF_ BU_  "TpTxAdrMode" INT 0 0;
+BA_DEF_ BO_  "TpTxIndex" INT 0 99;
+BA_DEF_ BU_  "sourceId" HEX 0 255;
+BA_DEF_ BO_  "TpMsgType" STRING ;
+BA_DEF_ BO_  "TpApplType" STRING ;
+BA_DEF_ BO_  "GenMsgStartDelayTime" INT 0 0;
+BA_DEF_ BO_  "GenMsgMandatoryToSupervision" ENUM  "No","Yes","vector_leerstring";
+BA_DEF_ BO_  "GenMsgTimeout" INT 0 65536;
+BA_DEF_  "Manufacturer" STRING ;
+BA_DEF_  "NmType" STRING ;
+BA_DEF_ BO_  "DiagState" ENUM  "No","Yes";
+BA_DEF_  "NodeStatusMsgID" HEX 0 536870911;
+BA_DEF_  "NodeStatusMsgCycleTime" INT 0 65535;
+BA_DEF_  "NodeStatusMsgTimeoutTime" INT 0 65535;
+BA_DEF_ BO_  "GenMsgNoIalSupport" ENUM  "No","Yes","vector_leerstring";
+BA_DEF_  "NmMessageCount" INT 0 64;
+BA_DEF_  "NmBaseAddress" HEX 0 2047;
+BA_DEF_ BU_  "NodeLayerModules" STRING ;
+BA_DEF_ BU_  "NmStationaddress" INT 0 63;
+BA_DEF_ BU_  "NmNode" ENUM  "No","Yes";
+BA_DEF_ BU_  "MessageManagerUsed" ENUM  "No","Yes";
+BA_DEF_ BO_  "GenMsgDelayTime" INT 0 100000;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 100000;
+BA_DEF_ BO_  "GenMsgCycleTimeFast" INT 0 100000;
+BA_DEF_ BO_  "GenMsgSendType" ENUM  "cyclicX","spontanX","cyclicIfActiveX","spontanWithDelay","cyclicAndSpontanX","cyclicAndSpontanWithDelay","spontanWithRepitition","cyclicIfActiveAndSpontanWD";
+BA_DEF_ BO_  "DiagResponse" ENUM  "No","Yes";
+BA_DEF_ BO_  "DiagRequest" ENUM  "No","Yes";
+BA_DEF_ BO_  "NmMessage" ENUM  "No","Yes";
+BA_DEF_ SG_  "GenSigTimeoutTime_DUT" INT 0 100000;
+BA_DEF_ SG_  "GenSigTimeoutTime_Tester" INT 0 100000;
+BA_DEF_ SG_  "GenSigTimeoutMsg_DUT" HEX -2147483648 -1610612737;
+BA_DEF_ SG_  "GenSigTimeoutMsg_Tester" HEX -2147483648 -1610612737;
+BA_DEF_  "UseGMParameterIDs" INT 0 1;
+BA_DEF_DEF_  "TpOwnSystemEcuNumber" 0;
+BA_DEF_DEF_  "TpTxAdrMode" 0;
+BA_DEF_DEF_  "TpTxIndex" 0;
+BA_DEF_DEF_  "sourceId" 0;
+BA_DEF_DEF_  "TpMsgType" "";
+BA_DEF_DEF_  "TpApplType" "";
+BA_DEF_DEF_  "GenMsgStartDelayTime" 0;
+BA_DEF_DEF_  "GenMsgMandatoryToSupervision" "No";
+BA_DEF_DEF_  "GenMsgTimeout" 0;
+BA_DEF_DEF_  "Manufacturer" "GM";
+BA_DEF_DEF_  "NmType" "GMLAN";
+BA_DEF_DEF_  "DiagState" "No";
+BA_DEF_DEF_  "NodeStatusMsgID" 335536128;
+BA_DEF_DEF_  "NodeStatusMsgCycleTime" 1200;
+BA_DEF_DEF_  "NodeStatusMsgTimeoutTime" 3000;
+BA_DEF_DEF_  "GenMsgNoIalSupport" "No";
+BA_DEF_DEF_  "NmMessageCount" 64;
+BA_DEF_DEF_  "NmBaseAddress" 1536;
+BA_DEF_DEF_  "NodeLayerModules" "";
+BA_DEF_DEF_  "NmStationaddress" 0;
+BA_DEF_DEF_  "NmNode" "No";
+BA_DEF_DEF_  "MessageManagerUsed" "Yes";
+BA_DEF_DEF_  "GenMsgDelayTime" 0;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_DEF_DEF_  "GenMsgCycleTimeFast" 0;
+BA_DEF_DEF_  "GenMsgSendType" "spontanX";
+BA_DEF_DEF_  "DiagResponse" "No";
+BA_DEF_DEF_  "DiagRequest" "No";
+BA_DEF_DEF_  "NmMessage" "No";
+BA_DEF_DEF_  "GenSigTimeoutTime_DUT" 0;
+BA_DEF_DEF_  "GenSigTimeoutTime_Tester" 0;
+BA_DEF_DEF_  "GenSigTimeoutMsg_DUT" -2147483648;
+BA_DEF_DEF_  "GenSigTimeoutMsg_Tester" -2147483648;
+BA_DEF_DEF_  "UseGMParameterIDs" 1;
+BA_ "NmMessageCount" 32;
+BA_ "NmBaseAddress" 1568;
+BA_ "MessageManagerUsed" BU_ DUT1 1;
+BA_ "NmNode" BU_ DUT1 1;
+BA_ "sourceId" BU_ DUT1 70;
+BA_ "NodeLayerModules" BU_ Tester "gmlan02.dll";
+BA_ "NmStationaddress" BU_ Tester 5;
+BA_ "NmNode" BU_ Tester 1;
+BA_ "MessageManagerUsed" BU_ Tester 1;
+BA_ "sourceId" BU_ DUT 69;
+BA_ "NodeLayerModules" BU_ DUT "gmlan02.dll";
+BA_ "NmStationaddress" BU_ DUT 4;
+BA_ "NmNode" BU_ DUT 1;
+BA_ "MessageManagerUsed" BU_ DUT 1;
+BA_ "DiagResponse" BO_ 1617 1;
+BA_ "DiagResponse" BO_ 1616 1;
+BA_ "DiagRequest" BO_ 593 1;
+BA_ "DiagRequest" BO_ 592 1;
+BA_ "DiagState" BO_ 257 1;
+BA_ "GenMsgNoIalSupport" BO_ 257 1;
+BA_ "DiagRequest" BO_ 1605 0;
+BA_ "DiagResponse" BO_ 1605 1;
+BA_ "GenMsgSendType" BO_ 1605 1;
+BA_ "GenMsgSendType" BO_ 581 1;
+BA_ "DiagRequest" BO_ 581 1;
+BA_ "GenMsgSendType" BO_ 1609 1;
+BA_ "DiagRequest" BO_ 1609 0;
+BA_ "DiagResponse" BO_ 1609 1;
+BA_ "GenMsgSendType" BO_ 585 1;
+BA_ "DiagRequest" BO_ 585 1;
+

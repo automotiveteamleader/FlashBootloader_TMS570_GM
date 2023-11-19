@@ -1,0 +1,22 @@
+********************************************************************************
+TMS470 Hex Converter                                                      v4.9.5
+********************************************************************************
+
+INPUT FILE NAME: <FlashDrv_F021.out>
+OUTPUT FORMAT:   Motorola-S3
+
+PHYSICAL MEMORY PARAMETERS
+   Default data width   :  32
+   Default memory width :  32
+   Default output width :  32
+
+
+OUTPUT TRANSLATION MAP
+--------------------------------------------------------------------------------
+00000000..ffffffff  Page=0  Memory Width=32  ROM Width=32
+--------------------------------------------------------------------------------
+   OUTPUT FILES: FlashDrv_F021.hex [b0..b31]
+
+   CONTENTS: 08001000..08001013   FlashDrv_F021.out(.SIGNATURE)
+             08001018..0800219b   FlashDrv_F021.out(.text)
+             080021c0..080021e7   FlashDrv_F021.out(.cinit)

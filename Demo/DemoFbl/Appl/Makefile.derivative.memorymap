@@ -1,0 +1,326 @@
+#------------------------------------------------------------------------------
+# define the memory map (RAM/ROM area)
+#------------------------------------------------------------------------------
+
+define REGION_PSF761
+         $(ECHO) "   /* 768k */"                                                                   >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x000bfdf0"                      >> $@; \
+         $(ECHO) "   /* 48k - Stack 4k */"                                                         >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x0000afff"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_PSF762
+         $(ECHO) "   /* 512KB */"                                                                  >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x001ffdd0"                      >> $@; \
+         $(ECHO) "   /* 40k - Stack 4k*/"                                                          >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x00008fff"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_PSFB61
+         $(ECHO) "   /* 1.25MB */"                                                                 >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x0013fdff"                      >> $@; \
+         $(ECHO) "   /* 80k - Stack 4k */"                                                         >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08003000   length=0x00010fff"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_PSFC61
+         $(ECHO) "   /* 2MB */"                                                                    >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x001ffdff"                      >> $@; \
+         $(ECHO) "   /* 128k - Stack 4k - FlexRay 8k */"                                           >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08003000   length=0x0001cfff"                      >> $@; \
+         $(ECHO) "   FR      (RW)   :  origin=0x08001000   length=0x00002000"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_PSFC66
+         $(ECHO) "   /* 2MB */"                                                                    >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x001ffdff"                      >> $@; \
+         $(ECHO) "   /* 160k - Stack 4k - FlexRay 8k*/"                                            >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08003000   length=0x00024fff"                      >> $@; \
+         $(ECHO) "   FR      (RW)   :  origin=0x08001000   length=0x00002000"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_PSFD62
+         $(ECHO) "   /* 1536k */"                                                                  >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x0017fdff"                      >> $@; \
+         $(ECHO) "   /* 144k - Stack 4k - FlexRay 8k */                                            >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08003000   length=0x00020fff"                      >> $@; \
+         $(ECHO) "   FR      (RW)   :  origin=0x08001000   length=0x00002000"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_LS0432
+         $(ECHO) "   /* 384k */"                                                                  >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x0005fdff"                      >> $@; \
+         $(ECHO) "   /* 32k - Stack 4k  */                                                         >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x00006fff"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_LS0805
+         $(ECHO) "   /* 768k */"                                                                  >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x000bfdff"                      >> $@; \
+         $(ECHO) "   /* 64k - Stack 4k - FlexRay 8k */"                                           >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08003000   length=0x0000cfff"                      >> $@; \
+         $(ECHO) "   FR      (RW)   :  origin=0x08001000   length=0x00002000"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_LS10206
+         $(ECHO) "   /* 1MB */"                                                                    >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x000ffdff"                      >> $@; \
+         $(ECHO) "   /* 160k - Stack 4k - FlexRay 8k */"                                           >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x00024fff"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_LS10216
+         $(ECHO) "   /* 1MB */"                                                                    >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x000ffdff"                      >> $@; \
+         $(ECHO) "   /* 160k - Stack 4k - FlexRay 8k */"                                           >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08003000   length=0x00024fff"                      >> $@; \
+         $(ECHO) "   FR      (RW)   :  origin=0x08001000   length=0x00002000"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_LS10216
+         $(ECHO) "   /* 1MB */"                                                                    >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x000ffdff"                      >> $@; \
+         $(ECHO) "   /* 160k - Stack 4k - FlexRay 8k */"                                           >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08003000   length=0x00024fff"                      >> $@; \
+         $(ECHO) "   FR      (RW)   :  origin=0x08001000   length=0x00002000"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_LS1227
+         $(ECHO) "   /* 1.25MB */"                                                                    >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x0013fdff"                      >> $@; \
+         $(ECHO) "   /* 192k - Stack 4k - FlexRay 8k */"                                           >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08003000   length=0x0002cfff"                      >> $@; \
+         $(ECHO) "   FR      (RW)   :  origin=0x08001000   length=0x00002000"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+REGION_LS20216 = $(REGION_PSFC66)
+
+define REGION_LS2124
+         $(ECHO) "   /* 2MB */"                                                                    >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x001ffdff"                      >> $@; \
+         $(ECHO) "   /* 192k - Stack 4k */"                                           >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x0002ffff"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_LS2125
+         $(ECHO) "   /* 2MB */"                                                                    >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x001ffdff"                      >> $@; \
+         $(ECHO) "   /* 192k - Stack 4k - FlexRay 8k */"                                           >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08003000   length=0x0002cfff"                      >> $@; \
+         $(ECHO) "   FR      (RW)   :  origin=0x08001000   length=0x00002000"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_LS2134
+         $(ECHO) "   /* 2MB */"                                                                    >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x001ffdff"                      >> $@; \
+         $(ECHO) "   /* 256k - Stack 4k */"                                                        >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08003000   length=0x0003ffff"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_LS2135
+         $(ECHO) "   /* 2MB */"                                                                    >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x001ffdff"                      >> $@; \
+         $(ECHO) "   /* 256k - Stack 4k - FlexRay 8k */"                                           >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08003000   length=0x0003cfff"                      >> $@; \
+         $(ECHO) "   FR      (RW)   :  origin=0x08001000   length=0x00002000"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+#ls30336 updated to configure Nexteer specific 0714PGEQQ1 derivative VADJLE
+define REGION_LS30336 
+         $(ECHO) "   /* 36kB */"                                                                    >> $@; \
+         $(ECHO) "   FBLHDR   (RX)   :  origin=0x00000200   length=0x00000100"                      >> $@; \
+         $(ECHO) "   ROM      (RX)   :  origin=0x00000300   length=0x0000F000"                      >> $@; \
+         $(ECHO) "   APPLVECT (RX)   :  origin=0x00010100   length=0x00000100"                      >> $@; \
+         $(ECHO) "   LOGZONE  (RW)   :  origin=0x00018000   length=0x00000180"                      >> $@; \
+         $(ECHO) "   /* 128k - Stack 4k*/"                                                          >> $@; \
+         $(ECHO) "   EEPIO    (RW)   :  origin=0x08020000   length=0x00001000"                      >> $@; \
+         $(ECHO) "   RAM      (RWX)  :  origin=0x08004000   length=0x0001C000"                      >> $@; \
+         $(ECHO) "   MAGICFLG (RW)   :  origin=0x08003000   length=0x00001000"                      >> $@; \
+         $(ECHO) "   FLDRV    (RWX)  :  origin=0x08001000   length=0x00002000"                      >> $@; \
+         $(ECHO) "   STACKS   (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_LS3134
+         $(ECHO) "   /* 3MB */"                                                                    >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x002ffdff"                      >> $@; \
+         $(ECHO) "   /* 256k - Stack 4k */"                                                        >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x0003ffff"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+REGION_LS3135 = $(REGION_LS30336)
+
+REGION_LS3137 = $(REGION_LS30336)
+
+ifeq ($(CONFIG_RAMUSED),1)
+# Memory Mapping for code execution from RAM
+define REGION_MSF542
+         $(ECHO) "   /* 2MB */"                                                                    >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000020   length=0x0000FFE0"                      >> $@; \
+         $(ECHO) "   /* 128k - Stack 4k */"                                                        >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x00010000   length=0x0000EFFC"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x0001EFFC   length=0x00001000"                      >> $@;
+endef
+else
+# Memory Mapping for code execution from ROM
+# viskkn: changed length=0x0007ffff to length=0x0007fd7f
+define REGION_MSF542
+         $(ECHO) "   /* 0,5MB */"                                                                  >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000280   length=0x0007fd7f"                      >> $@; \
+         $(ECHO) "   /* 64k - Stack 4k */"                                                         >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x0000eff0"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+endif
+
+define REGION_MF06607
+         $(ECHO) "   /* 512k */"                                                                   >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000280   length=0x0007fd7f"                      >> $@; \
+         $(ECHO) "   /* 64k - Stack 4k */"                                                         >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x0000eff0"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_PSF762
+         $(ECHO) "   /* 512KB */"                                                                  >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x001ffdd0"                      >> $@; \
+         $(ECHO) "   /* 40k - Stack 4k*/"                                                          >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x00008fff"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_MF04207
+         $(ECHO) "   /* 384k */"                                                                   >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000280   length=0x0005fd7f"                      >> $@; \
+         $(ECHO) "   /* 24k - Stack 4k */"                                                         >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x00004ff0"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_AVF68X
+         $(ECHO) "   /* 4-32bit protection keys */"                                                >> $@; \
+         $(ECHO) "   ROM_KEYS (X)   :  origin=0x00001FF0   length=0x00000010     fill =0xFFFFFFFF" >> $@; \
+         $(ECHO) "   /* 256k - length - 0x2000 because of protection keys */"                      >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00002000   length=0x0003E000"                      >> $@; \
+         $(ECHO) "   /* 16k (block 0) + 16k (block 1) - Stack 4k */"                               >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x00101000   length=0x00007000"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x00100000   length=0x00001000"                      >> $@; \
+         $(ECHO) "   /* peripherals */"                                                            >> $@; \
+         $(ECHO) "   HETPROG (RW)   :  origin=0x00800000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_R1VF45A
+         $(ECHO) "   /* 512k - length - 0x10 because of protection keys in ROM_LOW */"             >> $@; \
+         $(ECHO) "   ROM_LOW (RX)   :  origin=0x00000200   length=0x00003df0"                      >> $@; \
+         $(ECHO) "   PROTECT (RX)   :  origin=0x00003ff0   length=0x00000010  fill=0xffffffff"     >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00004000   length=0x0003C000"                      >> $@; \
+         $(ECHO) "   /* 16k (block 0) + 16k (block 1) - Stack 4k */"                               >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x00101000   length=0x00007000"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x00100000   length=0x00001000"                      >> $@; \
+         $(ECHO) ""                                                                                >> $@; \
+         $(ECHO) "   /* peripherals */"                                                            >> $@; \
+         $(ECHO) "   HETPROG (RW)   :  origin=0x00800000   length=0x00001000"                      >> $@; \
+         $(ECHO) ""                                                                                >> $@; \
+         $(ECHO) "   /* external flash */"                                                         >> $@; \
+         $(ECHO) "   EXTFLASH (RX)  :  origin=0x00080000   length=0x00080000"                      >> $@;
+endef
+
+define REGION_SE
+         $(ECHO) "   /* 512k */"                                                                   >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x0007fef0"                      >> $@; \
+         $(ECHO) "   /* 16k (block 0) + 16k (block 1) - Stack 4k */"                               >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x00101000   length=0x00007000"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x00100000   length=0x00001000"                      >> $@; \
+         $(ECHO) ""                                                                                >> $@; \
+         $(ECHO) "   /* peripherals */"                                                            >> $@; \
+         $(ECHO) "   HETPROG (RW)   :  origin=0x00800000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_R1VF336
+         $(ECHO) "   /* 128k - length - 0x10 because of protection keys */"                        >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00000200   length=0x0001fdf0"                      >> $@; \
+         $(ECHO) "   PROTECT (RX)   :  origin=0x0001fff0   length=0x00000010  fill=0xffffffff"     >> $@; \
+         $(ECHO) "   /* 4k (block 0) + 2k (block 1) - Stack 4k */"                                 >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x00101000   length=0x000007ff"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x00100000   length=0x00001000"                      >> $@; \
+         $(ECHO) ""                                                                                >> $@; \
+         $(ECHO) "   /* peripherals */"                                                            >> $@; \
+         $(ECHO) "   HETPROG (RW)   :  origin=0x00800000   length=0x00000800"                      >> $@;
+endef
+
+REGION_R1F316 = $(REGION_R1VF336)
+
+define REGION_R1VF338
+         $(ECHO) "   /* 4-32bit protection keys */"                                                >> $@; \
+         $(ECHO) "   ROM_KEYS (X)   :  origin=0x00001FF0   length=0x00000010     fill =0xFFFFFFFF" >> $@; \
+         $(ECHO) "   /* 256k - length - 0x2000 because of protection keys */"                      >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00002000   length=0x0003E000"                      >> $@; \
+         $(ECHO) "   /* 16k (block 0) + 16k (block 1) - Stack 2k */"                               >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x00101000   length=0x00007000"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x00100000   length=0x00001000"                      >> $@; \
+         $(ECHO) "   /* peripherals */"                                                            >> $@; \
+         $(ECHO) "   HETPROG (RW)   :  origin=0x00800000   length=0x00001000"                      >> $@;
+endef
+
+REGION_R1689 = $(REGION_AVF68X)
+
+define REGION_PVF241PN
+         $(ECHO) "   STARTUP        :  ORIGIN=0x00000200,   LENGTH=0x00003D00"                     >> $@; \
+         $(ECHO) "   PROTECT (RX)   :  ORIGIN=0x00003ff0,   LENGTH=0x00000010"                     >> $@; \
+         $(ECHO) "   /* 192k */"                                                                   >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00004000   length=0x0002bfff"                      >> $@; \
+         $(ECHO) "   /* 12k (block 0) - Stack 4k */"                                               >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x00001fff"                      >> $@; \
+         $(ECHO) ""                                                                                >> $@; \
+         $(ECHO) "   /* peripherals */"                                                            >> $@; \
+         $(ECHO) "   HETPROG (RW)   :  origin=0x00800000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_PVF249
+         $(ECHO) "   /* 256k */"                                                                   >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00004000   length=0x0003bfff"                      >> $@; \
+         $(ECHO) "   /* 16k (block 0) - Stack 4k */"                                               >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x00002fff"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@; \
+         $(ECHO) ""                                                                                >> $@; \
+         $(ECHO) "   /* peripherals */"                                                            >> $@; \
+         $(ECHO) "   HETPROG (RW)   :  origin=0x00800000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_PVF348
+         $(ECHO) "   /* 384k */"                                                                   >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00004000   length=0x0005bfff"                      >> $@; \
+         $(ECHO) "   /* 24k (block 0) - Stack 4k */"                                               >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x00004fff"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@; \
+         $(ECHO) ""                                                                                >> $@; \
+         $(ECHO) "   /* peripherals */"                                                            >> $@; \
+         $(ECHO) "   HETPROG (RW)   :  origin=0x00800000   length=0x00001000"                      >> $@;
+endef
+
+define REGION_PSF764
+         $(ECHO) "   /* 768k */"                                                                   >> $@; \
+         $(ECHO) "   ROM     (RX)   :  origin=0x00004000   length=0x000bbfff"                      >> $@; \
+         $(ECHO) "   /* 48k (block 0) - Stack 4k */"                                               >> $@; \
+         $(ECHO) "   RAM     (RW)   :  origin=0x08001000   length=0x0000afff"                      >> $@; \
+         $(ECHO) "   STACKS  (RW)   :  origin=0x08000000   length=0x00001000"                      >> $@; \
+         $(ECHO) ""                                                                                >> $@; \
+         $(ECHO) "   /* peripherals */"                                                            >> $@; \
+         $(ECHO) "   HETPROG (RW)   :  origin=0x00800000   length=0x00001000"                      >> $@;
+endef
